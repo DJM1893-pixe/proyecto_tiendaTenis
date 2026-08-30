@@ -19,7 +19,18 @@ public class Main {
             System.out.println(p2);
             System.out.println(p3);
             System.out.println(p4);
-        }
+
+            Inventario inv1 = new Inventario();
+            inv1.setId(1);
+            inv1.setStock(50);
+
+            Inventario inv2 = new Inventario(2, 120);
+
+            System.out.println(inv1);
+            System.out.println(inv2);
+    }
+
+
     }
 
 
