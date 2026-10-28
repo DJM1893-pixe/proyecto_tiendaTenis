@@ -1,3 +1,5 @@
+package main.java.app;
+
 public class Inventario {
     // Atributos
     private int id;
@@ -48,7 +50,7 @@ public class Inventario {
 
     @Override
     public String toString() {
-        return "Inventario{id=" + id + ", stock=" + stock + "}";
+        return "Java.Java.App.main.java.app.Inventario{id=" + id + ", stock=" + stock + "}";
     }
 }
 

@@ -1,3 +1,5 @@
+package main.java.app;
+
 public class Proveedor {
     // Atributos
     private int id;
@@ -58,7 +60,7 @@ public class Proveedor {
 
     @Override
     public String toString() {
-        return "Proveedor{id=" + id + ", nombre='" + nombre + "', contacto='" + contacto + "'}";
+        return "Java.Java.App.main.java.app.Proveedor{id=" + id + ", nombre='" + nombre + "', contacto='" + contacto + "'}";
     }
 }
 
