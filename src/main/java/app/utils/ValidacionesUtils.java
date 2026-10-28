@@ -1,4 +1,4 @@
-package Utils;
+package main.java.app.utils;
 
 public class ValidacionesUtils {
     // Validar que un string no esté vacío

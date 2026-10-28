@@ -4,7 +4,7 @@ import main.java.app.domain.Proveedor;
 
 import java.util.List;
 
-public class ProveedorUtils1 {
+public class ProveedorUtils {
 
     public static Proveedor buscarPorId(List<Proveedor> proveedores, int id) {
         for (Proveedor p : proveedores) {

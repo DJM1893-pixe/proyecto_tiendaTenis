@@ -1,16 +1,20 @@
-package main.java.app;
+package main.java.app.domain;
 
 public class Inventario {
     // Atributos
     private int id;
     private int stock;
+    private int talla;
+
+
 
     // Constructores
     public Inventario() {
     }
 
-    public Inventario(int id, int stock) {
+    public Inventario(int id,int talla, int stock) {
         this.id = id;
+        this.talla = talla;
         this.stock = stock;
     }
 
@@ -21,6 +25,13 @@ public class Inventario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTalla() {
+        return talla;
+    }
+    public void setTalla(int talla) {
+        this.talla = talla;
     }
 
     public int getStock() {
@@ -50,7 +61,7 @@ public class Inventario {
 
     @Override
     public String toString() {
-        return "Java.Java.App.main.java.app.Inventario{id=" + id + ", stock=" + stock + "}";
+        return "Java.Java.App.main.java.app.domain.Inventario{id=" + id + ", stock=" + stock + "}";
     }
 }
 

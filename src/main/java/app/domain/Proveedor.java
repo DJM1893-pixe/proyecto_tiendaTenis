@@ -1,4 +1,4 @@
-package main.java.app;
+package main.java.app.domain;
 
 public class Proveedor {
     // Atributos
@@ -60,7 +60,7 @@ public class Proveedor {
 
     @Override
     public String toString() {
-        return "Java.Java.App.main.java.app.Proveedor{id=" + id + ", nombre='" + nombre + "', contacto='" + contacto + "'}";
+        return "Java.Java.App.main.java.app.domain.Proveedor{id=" + id + ", nombre='" + nombre + "', contacto='" + contacto + "'}";
     }
 }
 
