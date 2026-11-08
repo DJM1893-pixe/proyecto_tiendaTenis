@@ -14,8 +14,6 @@ El proyecto se desarrollará utilizando la metodología ágil Scrum.
 
 ## Equipo
 
-- Ana María Saldarriaga Restrepo
 - Daniel Alfonso Cartagena Gil
 - Daniel Jimenez Martinez
-- Luis Fernando Ramirez Arteaga
 - Wilmer Meneses Gaviria 
