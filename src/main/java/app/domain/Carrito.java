@@ -14,9 +14,13 @@ public class Carrito {
     }
 
     // Constructor completo
-    public Carrito(int id, Date fechaCreacion) {
+    public Carrito(int id,
+                   Date fechaCreacion,
+                   List<DetalleCarrito> detalles) {
+
         this.id = id;
         this.fechaCreacion = fechaCreacion;
+        this.detalles = detalles;
     }
 
     public int getId() {

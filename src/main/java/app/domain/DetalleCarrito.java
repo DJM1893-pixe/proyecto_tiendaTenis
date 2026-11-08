@@ -1,40 +1,39 @@
-    package app.domain;
+package app.domain;
 
-    public class DetalleCarrito {
+public class DetalleCarrito {
 
-        private int cantidad;
+    private int cantidad;
+    private Producto producto;
 
-
-        // Constructor vacío
-        public DetalleCarrito() {
-        }
-
-        // Constructor con parámetros
-        public DetalleCarrito(int cantidad) {
-            this.cantidad = cantidad;
-        }
-
-        // Getter
-        public int getCantidad() {
-            return cantidad;
-        }
-
-        // Setter
-        public void setCantidad(int cantidad) {
-            this.cantidad = cantidad;
-        }
-
-        private Producto producto;
-        public Producto getProducto() {
-            return producto;
-        }
-
-
-        @Override
-        public String toString() {
-            return "DetalleCarrito{" +
-                    "cantidad=" + cantidad +
-                    '}';
-        }
+    public DetalleCarrito() {
     }
 
+    public DetalleCarrito(int cantidad, Producto producto) {
+        this.cantidad = cantidad;
+        this.producto = producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    @Override
+    public String toString() {
+        return "DetalleCarrito{" +
+                "cantidad=" + cantidad +
+                ", producto=" + producto +
+                '}';
+    }
+}

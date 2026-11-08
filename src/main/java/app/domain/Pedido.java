@@ -1,5 +1,7 @@
 package app.domain;
 
+import app.domain.Enums.EstadoPedido;
+
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +9,7 @@ public class Pedido {
 
     private int id;
     private Date fecha;
-    private String estado;
+    private EstadoPedido estado;
     private double total;
     private List<DetallePedido> detallesPedido;
     private Pago pago;
@@ -17,7 +19,7 @@ public class Pedido {
     }
 
     // Constructor completo
-    public Pedido(int id, Date fecha, String estado, double total) {
+    public Pedido(int id, Date fecha, EstadoPedido estado, double total) {
         this.id = id;
         this.fecha = fecha;
         this.estado = estado;
@@ -40,11 +42,11 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public String getEstado() {
+    public Enum<EstadoPedido> getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoPedido estado) {
         this.estado = estado;
     }
 
