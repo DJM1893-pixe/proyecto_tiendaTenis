@@ -1,16 +1,21 @@
+
 package app;
 
 import app.domain.*;
+import app.domain.Enums.EstadoPedido;
 import app.interfaces.MenuView;
 import app.repository.InventarioRepository;
 import app.service.CarritoService;
+import app.service.PedidoService;
 import app.service.ProductoService;
 import app.service.ProveedorService;
 import app.view.CarritoView;
 import app.view.InventarioView;
+import app.view.PedidoView;
 import app.view.ProductoView;
 import app.view.ProveedorView;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -96,6 +101,35 @@ public class Main {
                         carrito2
                 );
 
+                // PEDIDOS
+                List<Pedido> pedidos = new ArrayList<>();
+
+                Pedido pedido1 = new Pedido(
+                        1,
+                        new Date(),
+                        EstadoPedido.PENDIENTE,
+                        250000
+                );
+
+                Pedido pedido2 = new Pedido(
+                        2,
+                        new Date(),
+                        EstadoPedido.CONFIRMADO,
+                        350000
+                );
+
+                Pedido pedido3 = new Pedido(
+                        3,
+                        new Date(),
+                        EstadoPedido.ENVIADO,
+                        180000
+                );
+
+                pedidos.add(pedido1);
+                pedidos.add(pedido2);
+                pedidos.add(pedido3);
+
+                // SCANNER
                 Scanner scanner = new Scanner(System.in);
 
                 // SERVICES
@@ -107,6 +141,9 @@ public class Main {
 
                 CarritoService carritoService =
                         new CarritoService(carritos);
+
+                PedidoService pedidoService =
+                        new PedidoService(pedidos);
 
                 // REPOSITORY
                 InventarioRepository inventarioRepository =
@@ -128,6 +165,10 @@ public class Main {
                 MenuView vistaCarritos =
                         new CarritoView(carritoService, scanner);
 
+                MenuView vistaPedidos =
+                        new PedidoView(pedidoService, scanner);
+
+                // MENU PRINCIPAL
                 boolean continuar = true;
 
                 while (continuar) {
@@ -137,6 +178,7 @@ public class Main {
                         System.out.println("2. Inventario");
                         System.out.println("3. Productos");
                         System.out.println("4. Carritos");
+                        System.out.println("5. Pedidos");
                         System.out.println("0. Salir");
                         System.out.print("Opción: ");
 
@@ -158,6 +200,10 @@ public class Main {
 
                                 case "4":
                                         vistaCarritos.mostrarMenu();
+                                        break;
+
+                                case "5":
+                                        vistaPedidos.mostrarMenu();
                                         break;
 
                                 case "0":
