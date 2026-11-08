@@ -1,4 +1,4 @@
-package main.java.app.utils;
+package app.utils;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;

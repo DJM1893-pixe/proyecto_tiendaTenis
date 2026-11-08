@@ -1,4 +1,4 @@
-package main.java.app.domain;
+package app.domain;
 
 public class Inventario {
     // Atributos
@@ -42,26 +42,9 @@ public class Inventario {
         this.stock = stock;
     }
 
-    //  Métodos CRUD (sin lógica todavía)
-
-    public void create() {
-    }
-
-    public void selectAll() {
-    }
-
-    public void selectById(int id) {
-    }
-
-    public void update(int id) {
-    }
-
-    public void delete(int id) {
-    }
-
     @Override
     public String toString() {
-        return "Java.Java.App.main.java.app.domain.Inventario{id=" + id + ", stock=" + stock + "}";
+        return "Inventario{id=" + id + ", talla=" + talla + ", stock=" + stock + "}";
     }
 }
 

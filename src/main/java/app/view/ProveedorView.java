@@ -1,10 +1,9 @@
-package main.java.app.view;
+package app.view;
 
-import main.java.app.domain.Proveedor;
-import main.java.app.service.ProveedorService;
-import main.java.app.interfaces.MenuView;
+import app.domain.Proveedor;
+import app.interfaces.MenuView;
+import app.service.ProveedorService;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class  ProveedorView implements MenuView {
@@ -50,6 +49,9 @@ public class  ProveedorView implements MenuView {
     }
 
     private void listarProveedores() {
+        for (Proveedor proveedor : proveedorService.obtenerTodos()) {
+            System.out.println(proveedor);
+        }
     }
 
     private void buscarPorId() {

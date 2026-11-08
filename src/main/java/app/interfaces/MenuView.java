@@ -1,4 +1,4 @@
-package main.java.app.interfaces;
+package app.interfaces;
 
 public interface MenuView {
         void mostrarMenu();

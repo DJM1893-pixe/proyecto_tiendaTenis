@@ -1,12 +1,12 @@
-package main.java.app;
+package app;
 
-import main.java.app.domain.Inventario;
-import main.java.app.domain.Proveedor;
-import main.java.app.interfaces.MenuView;
-import main.java.app.repository.InventarioRepository;
-import main.java.app.service.ProveedorService;
-import main.java.app.view.InventarioView;
-import main.java.app.view.ProveedorView;
+import app.domain.Inventario;
+import app.domain.Proveedor;
+import app.interfaces.MenuView;
+import app.repository.InventarioRepository;
+import app.service.ProveedorService;
+import app.view.InventarioView;
+import app.view.ProveedorView;
 
 import java.util.List;
 import java.util.Scanner;

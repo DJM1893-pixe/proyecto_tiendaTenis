@@ -1,8 +1,9 @@
-package main.java.app.view;
-import main.java.app.utils.InventarioUtils;
-import main.java.app.interfaces.MenuView;
+package app.view;
 
-import main.java.app.repository.InventarioRepository;
+import app.interfaces.MenuView;
+import app.utils.InventarioUtils;
+
+import app.repository.InventarioRepository;
 
 import java.util.Scanner;
 
@@ -39,7 +40,7 @@ import java.util.Scanner;
             int talla = leerEntero("Talla que buscas: ");
             int cantidad = leerEntero("Cantidad solicitada: ");
 
-            if (talla <= 0 || cantidad <= 0) {
+            if (!InventarioUtils.tallaValida(talla) || !InventarioUtils.cantidadValida(cantidad)) {
                 System.out.println("La talla y la cantidad deben ser mayores que cero.");
                 return;
             }

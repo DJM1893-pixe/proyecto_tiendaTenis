@@ -1,4 +1,4 @@
-package main.java.app.utils;
+package app.utils;
 
 public class InventarioUtils {
     public static boolean tallaValida(int talla) {

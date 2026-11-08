@@ -1,6 +1,6 @@
-package main.java.app.utils;
+package app.utils;
 
-import main.java.app.domain.Proveedor;
+import app.domain.Proveedor;
 
 import java.util.List;
 

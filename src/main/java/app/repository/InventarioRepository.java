@@ -1,6 +1,6 @@
-package main.java.app.repository;
+package app.repository;
 
-import main.java.app.domain.Inventario;
+import app.domain.Inventario;
 
 import java.util.ArrayList;
 import java.util.List;

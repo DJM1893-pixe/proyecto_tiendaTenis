@@ -1,7 +1,7 @@
-package main.java.app.service;
+package app.service;
 
-import main.java.app.domain.Proveedor;
-import main.java.app.utils.ProveedorUtils;
+import app.domain.Proveedor;
+import app.utils.ProveedorUtils;
 
 import java.util.List;
 
