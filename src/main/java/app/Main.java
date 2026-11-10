@@ -14,6 +14,9 @@ import app.view.InventarioView;
 import app.view.PedidoView;
 import app.view.ProductoView;
 import app.view.ProveedorView;
+import app.domain.Cliente;
+import app.service.ClienteService;
+import app.view.ClienteView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,6 +76,8 @@ public class Main {
                         prod1
                 );
 
+
+
                 DetalleCarrito detalle2 = new DetalleCarrito(
                         1,
                         prod2
@@ -100,6 +105,32 @@ public class Main {
                         carrito1,
                         carrito2
                 );
+
+                // CLIENTES
+                List<Cliente> clientes = new ArrayList<>();
+
+                Cliente cliente1 = new Cliente(
+                        1,
+                        "Daniel Muñoz",
+                        "daniel@gmail.com",
+                        "123456",
+                        "Itagüí",
+                        "3001234567",
+                        carrito1
+                );
+
+                Cliente cliente2 = new Cliente(
+                        2,
+                        "Juan Pérez",
+                        "juan@gmail.com",
+                        "654321",
+                        "Medellín",
+                        "3019876543",
+                        carrito2
+                );
+
+                clientes.add(cliente1);
+                clientes.add(cliente2);
 
                 // PEDIDOS
                 List<Pedido> pedidos = new ArrayList<>();
