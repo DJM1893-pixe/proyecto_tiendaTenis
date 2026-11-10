@@ -6,7 +6,7 @@ import app.service.ProveedorService;
 
 import java.util.Scanner;
 
-public class  ProveedorView implements MenuView {
+public class ProveedorView implements MenuView {
     private final ProveedorService proveedorService;
     private final Scanner scanner;
 
@@ -22,6 +22,7 @@ public class  ProveedorView implements MenuView {
         System.out.println("2. Buscar por nombre");
         System.out.println("3. Validar contacto de ejemplo");
         System.out.println("4. Listar proveedores");
+        System.out.println("5. Agregar proveedor");
         System.out.println("0. Volver");
 
         System.out.print("Opción: ");
@@ -40,8 +41,10 @@ public class  ProveedorView implements MenuView {
             case "4":
                 listarProveedores();
                 break;
+            case "5":
+                agregarProveedor();
+                break;
             case "0":
-
                 return;
             default:
                 System.out.println("Opción no válida.");
@@ -52,6 +55,26 @@ public class  ProveedorView implements MenuView {
         for (Proveedor proveedor : proveedorService.obtenerTodos()) {
             System.out.println(proveedor);
         }
+    }
+
+    private void agregarProveedor() {
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Contacto: ");
+        String contacto = scanner.nextLine();
+
+        if (!proveedorService.contactoValido(contacto)) {
+            System.out.println("Contacto inválido. Proveedor no guardado.");
+            return;
+        }
+
+        Proveedor proveedor = new Proveedor();
+        proveedor.setNombre(nombre);
+        proveedor.setContacto(contacto);
+
+        proveedorService.agregar(proveedor);
+        System.out.println("Proveedor guardado con ID " + proveedor.getId());
     }
 
     private void buscarPorId() {
@@ -78,15 +101,11 @@ public class  ProveedorView implements MenuView {
         System.out.println(valido ? "Contacto válido." : "Contacto inválido.");
     }
 
-
     private void mostrarProveedor(Proveedor proveedor) {
         if (proveedor == null) {
             System.out.println("Proveedor no encontrado.");
         } else {
             System.out.println(proveedor);
         }
-
     }
 }
-
-//La vista se encargará de mostrar opciones y recibir datos

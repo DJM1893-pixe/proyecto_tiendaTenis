@@ -33,6 +33,29 @@ public class ProductoRepository {
         }
     }
 
+    public Producto buscarPorId(int id) {
+        String sql = "SELECT id, nombre, descripcion, precio, marca FROM producto WHERE id = ?";
+
+        try (PreparedStatement ps = conn().prepareStatement(sql)) {
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return new Producto(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getString("descripcion"),
+                            rs.getDouble("precio"),
+                            rs.getString("marca")
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al buscar el producto", e);
+        }
+        return null;
+    }
+
     public List<Producto> obtenerTodos() {
         List<Producto> lista = new ArrayList<>();
         String sql = "SELECT id, nombre, descripcion, precio, marca FROM producto";

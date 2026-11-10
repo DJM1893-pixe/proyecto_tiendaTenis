@@ -4,8 +4,10 @@ package app;
 import app.domain.*;
 import app.domain.Enums.EstadoPedido;
 import app.interfaces.MenuView;
+import app.repository.CarritoRepository;
 import app.repository.InventarioRepository;
 import app.repository.ProductoRepository;
+import app.repository.ProveedorRepository;
 import app.service.CarritoService;
 import app.service.PedidoService;
 import app.service.ProductoService;
@@ -33,10 +35,6 @@ public class Main {
                 Proveedor p4 = new Proveedor(4, "New Balance Colombia", "3205556677");
 
             List<Proveedor> proveedores = List.of(p1, p2, p3, p4);
-
-                // INVENTARIO
-                Inventario inv1 = new Inventario(1, 40, 50);
-                Inventario inv2 = new Inventario(2, 42, 120);
 
                 // PRODUCTOS
                 Producto prod1 = new Producto(
@@ -164,13 +162,13 @@ public class Main {
 
                 // SERVICES
             ProveedorService proveedorService =
-                    new ProveedorService(proveedores);
+                    new ProveedorService(new ProveedorRepository());
 
             ProductoService productoService =
                     new ProductoService(new ProductoRepository());
 
             CarritoService carritoService =
-                    new CarritoService(carritos);
+                    new CarritoService(new CarritoRepository());
 
             PedidoService pedidoService =
                     new PedidoService(pedidos);
@@ -178,8 +176,6 @@ public class Main {
                 InventarioRepository inventarioRepository =
                         new InventarioRepository();
 
-                inventarioRepository.guardar(inv1);
-                inventarioRepository.guardar(inv2);
 
                 // VIEWS
                 MenuView vistaProveedores =
