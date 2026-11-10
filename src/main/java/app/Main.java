@@ -5,6 +5,7 @@ import app.domain.*;
 import app.domain.Enums.EstadoPedido;
 import app.interfaces.MenuView;
 import app.repository.InventarioRepository;
+import app.repository.ProductoRepository;
 import app.service.CarritoService;
 import app.service.PedidoService;
 import app.service.ProductoService;
@@ -15,8 +16,6 @@ import app.view.PedidoView;
 import app.view.ProductoView;
 import app.view.ProveedorView;
 import app.domain.Cliente;
-import app.service.ClienteService;
-import app.view.ClienteView;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,7 +32,7 @@ public class Main {
                 Proveedor p3 = new Proveedor(3, "Puma Colombia", "3112223344");
                 Proveedor p4 = new Proveedor(4, "New Balance Colombia", "3205556677");
 
-                List<Proveedor> proveedores = List.of(p1, p2, p3, p4);
+            List<Proveedor> proveedores = List.of(p1, p2, p3, p4);
 
                 // INVENTARIO
                 Inventario inv1 = new Inventario(1, 40, 50);
@@ -164,18 +163,17 @@ public class Main {
                 Scanner scanner = new Scanner(System.in);
 
                 // SERVICES
-                ProveedorService proveedorService =
-                        new ProveedorService(proveedores);
+            ProveedorService proveedorService =
+                    new ProveedorService(proveedores);
 
-                ProductoService productoService =
-                        new ProductoService(productos);
+            ProductoService productoService =
+                    new ProductoService(new ProductoRepository());
 
-                CarritoService carritoService =
-                        new CarritoService(carritos);
+            CarritoService carritoService =
+                    new CarritoService(carritos);
 
-                PedidoService pedidoService =
-                        new PedidoService(pedidos);
-
+            PedidoService pedidoService =
+                    new PedidoService(pedidos);
                 // REPOSITORY
                 InventarioRepository inventarioRepository =
                         new InventarioRepository();

@@ -23,6 +23,7 @@ public class ProductoView implements MenuView {
         System.out.println("1. Buscar por ID");
         System.out.println("2. Buscar por nombre");
         System.out.println("3. Listar productos");
+        System.out.println("4. Agregar producto");
         System.out.println("0. Volver");
 
         System.out.print("Opción: ");
@@ -42,6 +43,10 @@ public class ProductoView implements MenuView {
                 listarProductos();
                 break;
 
+            case "4":
+                agregarProducto();
+                break;
+
             case "0":
                 return;
 
@@ -54,6 +59,41 @@ public class ProductoView implements MenuView {
         for (Producto producto : productoService.obtenerTodos()) {
             System.out.println(producto);
         }
+    }
+
+    private void agregarProducto() {
+
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Descripción: ");
+        String descripcion = scanner.nextLine();
+
+        System.out.print("Precio: ");
+        double precio;
+        try {
+            precio = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Precio no válido.");
+            return;
+        }
+
+        if (!productoService.precioValido(precio)) {
+            System.out.println("El precio debe ser válido.");
+            return;
+        }
+
+        System.out.print("Marca: ");
+        String marca = scanner.nextLine();
+
+        Producto producto = new Producto();
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setPrecio(precio);
+        producto.setMarca(marca);
+
+        productoService.agregar(producto);
+        System.out.println("Producto guardado con ID " + producto.getId());
     }
 
     private void buscarPorId() {
