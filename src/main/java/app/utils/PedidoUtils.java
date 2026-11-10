@@ -23,4 +23,47 @@ public class PedidoUtils {
                 " | Estado: " + pedido.getEstado() +
                 " | Total: $" + pedido.getTotal();
     }
+<<<<<<< HEAD
+=======
+package app.utils;
+
+import app.domain.Pedido;
+
+import java.util.List;
+
+public class PedidoUtils {
+
+    public static Pedido buscarPorId(List<Pedido> pedidos, int id) {
+        for (Pedido p : pedidos) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public static Pedido buscarPorEstado(List<Pedido> pedidos, String estado) {
+        for (Pedido p : pedidos) {
+            if (p.getEstado().equalsIgnoreCase(estado)) {
+                return p;
+            }
+        }
+        return null;
+    }
+
+    public static boolean validarTotal(double total) {
+        return total >= 0;
+    }
+
+    public static boolean validarEstado(String estado) {
+        return estado != null && !estado.trim().isEmpty();
+    }
+
+    public static String resumenPedido(Pedido pedido) {
+        return "ID: " + pedido.getId() +
+                " | Fecha: " + pedido.getFecha() +
+                " | Estado: " + pedido.getEstado() +
+                " | Total: $" + pedido.getTotal();
+    }
+>>>>>>> bf18ebe187c910053f1e1ba14b30e51882d9b291
 }
