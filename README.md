@@ -1,4 +1,4 @@
-# Proyecto Tienda de Tenis - Agilismo
+# Proyecto Tienda de Tenis 
 
 ## Descripción
 

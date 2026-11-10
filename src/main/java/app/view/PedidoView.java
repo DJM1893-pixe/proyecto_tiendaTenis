@@ -11,9 +11,7 @@ public class PedidoView implements MenuView {
     private final PedidoService pedidoService;
     private final Scanner scanner;
 
-    public PedidoView(PedidoService pedidoService,
-                      Scanner scanner) {
-
+    public PedidoView(PedidoService pedidoService, Scanner scanner) {
         this.pedidoService = pedidoService;
         this.scanner = scanner;
     }
@@ -49,7 +47,6 @@ public class PedidoView implements MenuView {
     }
 
     private void listarPedidos() {
-
         for (Pedido pedido : pedidoService.obtenerTodos()) {
             System.out.println(pedido);
         }
