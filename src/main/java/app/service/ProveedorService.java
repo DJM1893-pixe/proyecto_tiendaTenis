@@ -1,25 +1,32 @@
 package app.service;
 
 import app.domain.Proveedor;
+import app.repository.ProveedorRepository;
 import app.utils.ProveedorUtils;
 
 import java.util.List;
 
 public class ProveedorService {
-    private final List<Proveedor> proveedores;
+    private final ProveedorRepository repository;
 
-    public ProveedorService(List<Proveedor> proveedores) {
-        this.proveedores = proveedores;
+    public ProveedorService(ProveedorRepository repository) {
+        this.repository = repository;
     }
 
-    public List<Proveedor> obtenerTodos() {return proveedores;}
+    public void agregar(Proveedor proveedor) {
+        repository.guardar(proveedor);
+    }
+
+    public List<Proveedor> obtenerTodos() {
+        return repository.obtenerTodos();
+    }
 
     public Proveedor buscarPorId(int id) {
-        return ProveedorUtils.buscarPorId(proveedores, id);
+        return ProveedorUtils.buscarPorId(obtenerTodos(), id);
     }
 
     public Proveedor buscarPorNombre(String nombre) {
-        return ProveedorUtils.buscarPorNombre(proveedores, nombre);
+        return ProveedorUtils.buscarPorNombre(obtenerTodos(), nombre);
     }
 
     public boolean contactoValido(String contacto) {

@@ -4,7 +4,10 @@ package app;
 import app.domain.*;
 import app.domain.Enums.EstadoPedido;
 import app.interfaces.MenuView;
+import app.repository.CarritoRepository;
 import app.repository.InventarioRepository;
+import app.repository.ProductoRepository;
+import app.repository.ProveedorRepository;
 import app.service.CarritoService;
 import app.service.PedidoService;
 import app.service.ProductoService;
@@ -14,6 +17,7 @@ import app.view.InventarioView;
 import app.view.PedidoView;
 import app.view.ProductoView;
 import app.view.ProveedorView;
+import app.domain.Cliente;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,11 +34,7 @@ public class Main {
                 Proveedor p3 = new Proveedor(3, "Puma Colombia", "3112223344");
                 Proveedor p4 = new Proveedor(4, "New Balance Colombia", "3205556677");
 
-                List<Proveedor> proveedores = List.of(p1, p2, p3, p4);
-
-                // INVENTARIO
-                Inventario inv1 = new Inventario(1, 40, 50);
-                Inventario inv2 = new Inventario(2, 42, 120);
+            List<Proveedor> proveedores = List.of(p1, p2, p3, p4);
 
                 // PRODUCTOS
                 Producto prod1 = new Producto(
@@ -73,6 +73,8 @@ public class Main {
                         prod1
                 );
 
+
+
                 DetalleCarrito detalle2 = new DetalleCarrito(
                         1,
                         prod2
@@ -100,6 +102,32 @@ public class Main {
                         carrito1,
                         carrito2
                 );
+
+                // CLIENTES
+                List<Cliente> clientes = new ArrayList<>();
+
+                Cliente cliente1 = new Cliente(
+                        1,
+                        "Daniel Muñoz",
+                        "daniel@gmail.com",
+                        "123456",
+                        "Itagüí",
+                        "3001234567",
+                        carrito1
+                );
+
+                Cliente cliente2 = new Cliente(
+                        2,
+                        "Juan Pérez",
+                        "juan@gmail.com",
+                        "654321",
+                        "Medellín",
+                        "3019876543",
+                        carrito2
+                );
+
+                clientes.add(cliente1);
+                clientes.add(cliente2);
 
                 // PEDIDOS
                 List<Pedido> pedidos = new ArrayList<>();
@@ -133,24 +161,21 @@ public class Main {
                 Scanner scanner = new Scanner(System.in);
 
                 // SERVICES
-                ProveedorService proveedorService =
-                        new ProveedorService(proveedores);
+            ProveedorService proveedorService =
+                    new ProveedorService(new ProveedorRepository());
 
-                ProductoService productoService =
-                        new ProductoService(productos);
+            ProductoService productoService =
+                    new ProductoService(new ProductoRepository());
 
-                CarritoService carritoService =
-                        new CarritoService(carritos);
+            CarritoService carritoService =
+                    new CarritoService(new CarritoRepository());
 
-                PedidoService pedidoService =
-                        new PedidoService(pedidos);
-
+            PedidoService pedidoService =
+                    new PedidoService(pedidos);
                 // REPOSITORY
                 InventarioRepository inventarioRepository =
                         new InventarioRepository();
 
-                inventarioRepository.guardar(inv1);
-                inventarioRepository.guardar(inv2);
 
                 // VIEWS
                 MenuView vistaProveedores =

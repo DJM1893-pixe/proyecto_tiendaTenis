@@ -60,4 +60,10 @@ import java.sql.Date;
                     ", contrasena='" + contrasena + '\'' +
                     '}';
         }
+
+        public void setName(String name) {
+        }
+
+        public void setLastName(String lastName) {
+        }
     }
